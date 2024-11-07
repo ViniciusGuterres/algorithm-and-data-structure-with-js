@@ -79,9 +79,9 @@ class LinkedList {
     // Removes the last element of the linked list
     popNode() {
         // The the list cannot be empty
-        let removedNode = null;
+        let removedNode = undefined;
 
-        if (!this.head) return removedNode;
+        if (!this.length) return removedNode;
 
         // Case the list has just one node
         if (this.length === 1) {
