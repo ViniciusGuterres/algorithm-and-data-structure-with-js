@@ -58,16 +58,23 @@ class LinkedList {
         console.log("Length: " + this.length);
     }
 
+    // Add a new node in the end of the linked list
     pushNode(value) {
-        const node = new Node(value);
+        const newNode = new Node(value);
 
-        // If it's the first list element, put in the head
+        // If it's the first list element, put in the head and tail
+        // Otherwise, just add a new node a set to this list tail
         if (this.head === null) {
-            this.head = node;
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+            this.tail = newNode;
         }
 
-        this.tail = node;
         this.length++;
+
+        return this;
     }
 }
 
@@ -83,7 +90,7 @@ console.log("\n---------------------------------------");
 myLinkedList.pushNode(10);
 myLinkedList.pushNode(11);
 myLinkedList.pushNode(12);
-myLinkedList.pushNode(13);
+console.log(myLinkedList.pushNode(13))
 
 
 
