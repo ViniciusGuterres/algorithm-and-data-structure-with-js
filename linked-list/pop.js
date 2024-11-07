@@ -76,26 +76,57 @@ class LinkedList {
 
         return this;
     }
+
+    // Removes the last element of the linked list
+    popNode() {
+        // The the list cannot be empty
+        let removedNode = null;
+
+        if (!this.head) return removedNode;
+
+        // Case the list has just one node
+        if (this.length === 1) {
+            removedNode = this.head;
+
+            this.head = null;
+            this.tail = null;
+        } else {
+            removedNode = this.tail;
+            let tmpNode = this.head;
+
+            while (tmpNode !== null) {
+                const nextNode = tmpNode.next;
+
+                if (nextNode.next === null) {
+                    this.tail = tmpNode;
+                    this.tail.setNext(null);
+                    break;
+                }
+
+                tmpNode = tmpNode.next;
+            }
+        }
+
+        this.length--;
+        return removedNode;
+    }
 }
 
 let myLinkedList = new LinkedList();
 
-myLinkedList.getHead();
-myLinkedList.getTail();
-myLinkedList.getLength();
+myLinkedList.pushNode(1);
+myLinkedList.pushNode(2);
+myLinkedList.pushNode(3);
+myLinkedList.pushNode(4);
+myLinkedList.pushNode(5);
+myLinkedList.pushNode(6);
+
+console.log("🚀 ~ myLinkedList.popNode():", myLinkedList.popNode());
+
+
 console.log("\nLinked List:");
+myLinkedList.getTail();
 myLinkedList.printList();
 
 console.log("\n---------------------------------------");
-myLinkedList.pushNode(10);
-myLinkedList.pushNode(11);
-myLinkedList.pushNode(12);
-console.log(myLinkedList.pushNode(13))
-
-
-
-myLinkedList.getHead();
-myLinkedList.getTail();
-myLinkedList.getLength();
-console.log("\nLinked List:");
-myLinkedList.printList();
+// 
