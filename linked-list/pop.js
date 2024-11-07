@@ -91,6 +91,7 @@ class LinkedList {
             this.tail = null;
         } else {
             removedNode = this.tail;
+            
             let tmpNode = this.head;
 
             while (tmpNode !== null) {
