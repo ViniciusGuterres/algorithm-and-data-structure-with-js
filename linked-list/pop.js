@@ -73,7 +73,6 @@ class LinkedList {
         }
 
         this.length++;
-
         return this;
     }
 
