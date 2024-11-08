@@ -118,14 +118,14 @@ class LinkedList {
         //
         if (!this.length) {
             this.head = newNode;
+            this.tail = newNode;
         } else {
-            const previousHead = this.head;
-
+            newNode.setNext(this.head);
             this.head = newNode;
-            this.head.setNext(previousHead);
         }
 
         this.length++;
+        return this;
     }
 }
 
@@ -136,7 +136,7 @@ myLinkedList.unshift(19);
 myLinkedList.unshift(18);
 myLinkedList.unshift(17);
 myLinkedList.unshift(16);
-myLinkedList.unshift(15);
+console.log(myLinkedList.unshift(15))
 
 
 
