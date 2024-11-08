@@ -145,6 +145,7 @@ class LinkedList {
         }
 
         this.length--;
+        removedNode.setNext(null);
         return removedNode;
     }
 }
