@@ -129,20 +129,15 @@ class LinkedList {
     }
 
     get(index) {
-        if (!this.length) return undefined;
-        console.log("🚀 ~ LinkedList ~ get ~ this.length:", this.length)
+        if (index < 0 || index >= this.length) return undefined;
 
-        if (index > (this.length + 1)) return undefined;
+        let tmp = this.head;
 
-        let currentIndex = 0;
-        let tmpNode = this.head;
-
-        while (currentIndex !== index) {
-            tmpNode = tmpNode?.next;
-            index++;
+        for (let i = 0; i < index; i++) {
+            tmp = tmp.next;
         }
 
-        return tmpNode;
+        return tmp;
     }
 }
 
@@ -155,7 +150,7 @@ myLinkedList.unshift(17);
 myLinkedList.unshift(16);
 console.log(myLinkedList.unshift(15))
 
-console.log('get:::::::', myLinkedList.get(5))
+console.log('get:::::::', myLinkedList.get(6))
 
 
 console.log("\nLinked List:");
