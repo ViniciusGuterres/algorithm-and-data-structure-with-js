@@ -150,7 +150,6 @@ class LinkedList {
         if (!myNode) return false;
         
         myNode.setValue(value)
-
         return true;
     }
 }
