@@ -211,8 +211,8 @@ class LinkedList {
 
         if (index === this.length - 1) return this.pop();
 
-        let removedNode = this.get(index);
         let previousNode = this.get(index - 1);
+        let removedNode = previousNode.next;
         previousNode.setNext(removedNode.next);
 
         this.length--;
