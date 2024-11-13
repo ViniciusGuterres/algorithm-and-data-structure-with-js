@@ -6,7 +6,7 @@ class Node {
     }
 
     setNext(node) {
-        if (node?.value) {
+        if (node) {
             this.next = node;
         } else {
             this.next = null;
@@ -86,7 +86,7 @@ class LinkedList {
     }
 
     // Removes the last element of the linked list
-    popNode() {
+    pop() {
         // The the list cannot be empty
         let removedNode = undefined;
 
@@ -137,6 +137,27 @@ class LinkedList {
         return this;
     }
 
+    // Removes the current head of the linked list
+    // And the next node (of the removed head) become the new head 
+    shift() {
+        let removedNode = undefined;
+
+        if (!this.length) return removedNode;
+
+        removedNode = this.head;
+
+        if (this.length === 1) {
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.head = this.head.next;
+        }
+
+        this.length--;
+        removedNode.setNext(null);
+        return removedNode;
+    }
+
     get(index) {
         if (index < 0 || index >= this.length) return undefined;
 
@@ -184,7 +205,18 @@ class LinkedList {
     }
 
     remove(index) {
-        
+        if (index < 0 || index >= this.length) return null;
+
+        if (index === 0) return this.shift();
+
+        if (index === this.length - 1) return this.pop();
+
+        let removedNode = this.get(index);
+        let previousNode = this.get(index - 1);
+        previousNode.setNext(removedNode.next);
+
+        this.length--;
+        return removedNode;
     }
 }
 
@@ -195,7 +227,7 @@ myLinkedList.pushNode(19);
 myLinkedList.pushNode(18);
 myLinkedList.pushNode(17);
 
-console.log('result::: ', myLinkedList.insert(2, 155));
+console.log('removed::: ', myLinkedList.remove(2));
 // console.log(myLinkedList.insert(5, 200));
 
 console.log("\nLinked List:");
