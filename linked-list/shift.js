@@ -128,7 +128,7 @@ class LinkedList {
         return this;
     }
 
-        // Removes the current head of the linked list
+    // Removes the current head of the linked list
     // And the next node (of the removed head) become the new head 
     shift() {
         let removedNode = undefined;
