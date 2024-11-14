@@ -218,17 +218,43 @@ class LinkedList {
         this.length--;
         return removedNode;
     }
+
+    reverse() {
+        let tmp = this.tail;
+        let currentIndex = this.length - 1;
+
+        const tmpHead = this.head;
+        const tmpTail = this.tail;
+
+        for (let i = currentIndex; i >= 0; i--) {
+            let previous = this.get(i);
+
+            tmp.setNext(previous);
+            tmp = previous;
+        }
+
+        this.head.setNext(null);
+        this.head = tmpTail;
+        this.tail = tmpHead;
+
+        return this;
+    }
 }
 
 let myLinkedList = new LinkedList();
 
-myLinkedList.pushNode(20);
-myLinkedList.pushNode(19);
-myLinkedList.pushNode(18);
-myLinkedList.pushNode(17);
+myLinkedList.pushNode(1);
+myLinkedList.pushNode(2);
+myLinkedList.pushNode(3);
+myLinkedList.pushNode(4);
+myLinkedList.pushNode(5);
+myLinkedList.pushNode(6);
+myLinkedList.pushNode(7);
+myLinkedList.pushNode(8);
+myLinkedList.pushNode(9);
+myLinkedList.pushNode(10);
 
-console.log('removed::: ', myLinkedList.remove(2));
-// console.log(myLinkedList.insert(5, 200));
+console.log('myLinkedList.reverse():::', myLinkedList.reverse())
 
 console.log("\nLinked List:");
 myLinkedList.getHead();
