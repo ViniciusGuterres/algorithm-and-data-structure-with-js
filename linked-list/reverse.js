@@ -220,20 +220,27 @@ class LinkedList {
     }
 
     reverse() {
-        let tmp = this.tail;
-        let currentIndex = this.length - 1;
+        let current = this.head.next;
+        let tmp = current;
+        let previous = this.head;
 
         const tmpHead = this.head;
         const tmpTail = this.tail;
 
-        for (let i = currentIndex; i >= 0; i--) {
-            let previous = this.get(i);
+        let i = 0;
 
-            tmp.setNext(previous);
-            tmp = previous;
+        while (i < this.length - 1) {
+            tmp = current.next;
+            current.setNext(previous);
+            previous = current;
+
+            current = tmp;
+
+            i++;
         }
 
-        this.head.setNext(null);
+        tmpHead.setNext(null);
+
         this.head = tmpTail;
         this.tail = tmpHead;
 
