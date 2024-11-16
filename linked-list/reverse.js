@@ -267,6 +267,3 @@ console.log("\nLinked List:");
 myLinkedList.getHead();
 myLinkedList.getTail();
 myLinkedList.printList();
-
-console.log("\n---------------------------------------");
-// 
