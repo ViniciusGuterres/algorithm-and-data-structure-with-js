@@ -246,6 +246,24 @@ class LinkedList {
 
         return this;
     }
+
+    reverse2() {
+        let tmp = this.head;
+        this.head = this.tail;
+        this.tail = tmp;
+
+        let next = tmp.next;
+        let previous = null;
+
+        for (let i = 0; i < this.length; i++) {
+            next = tmp.next;
+            tmp.next = previous;
+            previous = tmp;
+            tmp = next;
+        }
+
+        return this;
+    }
 }
 
 let myLinkedList = new LinkedList();
@@ -261,7 +279,7 @@ myLinkedList.pushNode(8);
 myLinkedList.pushNode(9);
 myLinkedList.pushNode(10);
 
-console.log('myLinkedList.reverse():::', myLinkedList.reverse())
+console.log('myLinkedList.reverse():::', myLinkedList.reverse2())
 
 console.log("\nLinked List:");
 myLinkedList.getHead();
