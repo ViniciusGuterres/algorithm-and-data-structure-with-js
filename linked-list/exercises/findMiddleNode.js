@@ -56,7 +56,7 @@ class LinkedList {
     getListLength() {
         let tmp = this.head;
 
-        if (!tmp) return 0;
+        if (!tmp) return null;
 
         let listLength = 1;
 
@@ -70,21 +70,37 @@ class LinkedList {
     }
 
     findMiddleNode() {
-        const listLength = this.getListLength();
-        console.log("🚀 ~ LinkedList ~ findMiddleNode ~ listLength:", listLength)
+        const result = { value: null };
 
-        return {
-            value: 9
+        const listLength = this.getListLength();
+
+        if (!listLength) return result;
+
+        let tmp = this.head;
+
+        const middleIndex = 
+            listLength % 2 === 0 ? listLength / 2 : Math.floor(listLength / 2);
+
+        for (let i = 0; i < listLength; i++) {
+            if (i === middleIndex) {
+                result.value = tmp.value;
+                break;
+            }
+
+            tmp = tmp.next;
         }
+
+        return result;
     }
 }
 
 
-let myLinkedList = new LinkedList(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);
-myLinkedList.push(5);
+// let myLinkedList = new LinkedList(1);
+let myLinkedList = new LinkedList();
+// myLinkedList.push(2);
+// myLinkedList.push(3);
+// myLinkedList.push(4);
+// myLinkedList.push(5);
 
 console.log("Original list:");
 myLinkedList.printList();
@@ -93,18 +109,18 @@ const middleNode = myLinkedList.findMiddleNode();
 console.log(`\nMiddle node value: ${middleNode.value}`);
 
 // Create a new list with an even number of elements
-let myLinkedList2 = new LinkedList(1);
-myLinkedList2.push(2);
-myLinkedList2.push(3);
-myLinkedList2.push(4);
-myLinkedList2.push(5);
-myLinkedList2.push(6);
+// let myLinkedList2 = new LinkedList(1);
+// myLinkedList2.push(2);
+// myLinkedList2.push(3);
+// myLinkedList2.push(4);
+// myLinkedList2.push(5);
+// myLinkedList2.push(6);
 
-console.log("\nOriginal list 2:");
-myLinkedList2.printList();
+// console.log("\nOriginal list 2:");
+// myLinkedList2.printList();
 
-const middleNode2 = myLinkedList2.findMiddleNode();
-console.log(`\nMiddle node value of list 2: ${middleNode2.value}`);
+// const middleNode2 = myLinkedList2.findMiddleNode();
+// console.log(`\nMiddle node value of list 2: ${middleNode2.value}`);
 
 
 /*
