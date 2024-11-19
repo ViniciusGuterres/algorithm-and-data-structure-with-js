@@ -1,5 +1,5 @@
 class Node {
-    constructor(value){
+    constructor(value) {
         this.value = value;
         this.next = null;
     }
@@ -41,7 +41,7 @@ class LinkedList {
         this.tail = null;
         this.length = 0;
     }
- 
+
     push(value) {
         const newNode = new Node(value);
         if (!this.head) {
@@ -52,13 +52,32 @@ class LinkedList {
             this.tail = newNode;
         }
     }
-    
-    findMiddleNode() {
-        
+
+    getListLength() {
+        let tmp = this.head;
+
+        if (!tmp) return 0;
+
+        let listLength = 1;
+
+        while (tmp.next != null) {
+            tmp = tmp.next;
+
+            listLength++;
+        }
+
+        return listLength;
     }
 
-}
+    findMiddleNode() {
+        const listLength = this.getListLength();
+        console.log("🚀 ~ LinkedList ~ findMiddleNode ~ listLength:", listLength)
 
+        return {
+            value: 9
+        }
+    }
+}
 
 
 let myLinkedList = new LinkedList(1);
