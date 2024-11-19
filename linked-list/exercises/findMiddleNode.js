@@ -70,15 +70,15 @@ class LinkedList {
     }
 
     findMiddleNode() {
-        const result = { value: null };
+        let result = { value: null };
 
         const listLength = this.getListLength();
 
-        if (!listLength) return result;
+        if (!listLength) return null
 
         let tmp = this.head;
 
-        const middleIndex = 
+        const middleIndex =
             listLength % 2 === 0 ? listLength / 2 : Math.floor(listLength / 2);
 
         for (let i = 0; i < listLength; i++) {
@@ -95,12 +95,11 @@ class LinkedList {
 }
 
 
-// let myLinkedList = new LinkedList(1);
-let myLinkedList = new LinkedList();
-// myLinkedList.push(2);
-// myLinkedList.push(3);
-// myLinkedList.push(4);
-// myLinkedList.push(5);
+let myLinkedList = new LinkedList(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
+myLinkedList.push(5);
 
 console.log("Original list:");
 myLinkedList.printList();
@@ -108,19 +107,20 @@ myLinkedList.printList();
 const middleNode = myLinkedList.findMiddleNode();
 console.log(`\nMiddle node value: ${middleNode.value}`);
 
+
 // Create a new list with an even number of elements
-// let myLinkedList2 = new LinkedList(1);
-// myLinkedList2.push(2);
-// myLinkedList2.push(3);
-// myLinkedList2.push(4);
-// myLinkedList2.push(5);
-// myLinkedList2.push(6);
+let myLinkedList2 = new LinkedList(1);
+myLinkedList2.push(2);
+myLinkedList2.push(3);
+myLinkedList2.push(4);
+myLinkedList2.push(5);
+myLinkedList2.push(6);
 
-// console.log("\nOriginal list 2:");
-// myLinkedList2.printList();
+console.log("\nOriginal list 2:");
+myLinkedList2.printList();
 
-// const middleNode2 = myLinkedList2.findMiddleNode();
-// console.log(`\nMiddle node value of list 2: ${middleNode2.value}`);
+const middleNode2 = myLinkedList2.findMiddleNode();
+console.log(`\nMiddle node value of list 2: ${middleNode2.value}`);
 
 
 /*
