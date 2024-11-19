@@ -94,7 +94,6 @@ class LinkedList {
     }
 }
 
-
 let myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
 myLinkedList.push(3);
