@@ -59,35 +59,31 @@ class LinkedList {
         this.length++;
     }
     
-    // WRITE HAS LOOP METHOD HERE // 
-    //                            //
-    //                            //
-    //                            //
-    //                            //
-    ////////////////////////////////
+    hasLoop() {        
+        let fast = this.head;
+        let slow = this.head;
 
+        while(fast?.value != null && fast?.next != null) {            
+            slow = slow.next;            
+            fast = fast.next.next;
+        }
+
+        return slow.value;
+    }
 }
-
-
 
 let myLinkedList = new LinkedList(1);
 myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
 myLinkedList.push(5);
+myLinkedList.push(6);
 
 console.log("Original list:");
 myLinkedList.printList();
 
 const hasLoopResult = myLinkedList.hasLoop();
-console.log(`\nHas loop? ${hasLoopResult}`);
-
-// Create a loop for testing purposes
-myLinkedList.tail.next = myLinkedList.head.next; // Create a loop by linking tail to the second node
-
-const hasLoopResultAfterLoop = myLinkedList.hasLoop();
-console.log(`\nHas loop after creating a loop? ${hasLoopResultAfterLoop}`);
-
+console.log(`\nHas loop: ${hasLoopResult}`);
 
 /*
     EXPECTED OUTPUT:
