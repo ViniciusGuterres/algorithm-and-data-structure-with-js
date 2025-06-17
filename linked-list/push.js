@@ -63,7 +63,7 @@ class LinkedList {
         const newNode = new Node(value);
 
         // If it's the first list element, put in the head and tail
-        // Otherwise, just add a new node a set to this list tail
+        // Otherwise, just add a new node and set to this list tail
         if (this.head === null) {
             this.head = newNode;
             this.tail = newNode;
