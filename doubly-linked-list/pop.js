@@ -47,6 +47,9 @@ class DoublyLinkedList {
             let tmpTail = this.tail;
             this.tail = tmpTail.prev;
             this.tail.setNext(null);
+
+            tmpTail.setPrev(null);
+
             this.length--;
 
             return tmpTail;
