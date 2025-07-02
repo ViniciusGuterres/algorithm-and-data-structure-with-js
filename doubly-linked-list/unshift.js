@@ -87,4 +87,4 @@ myDoublyLinkedList.push(3);
 // myDoublyLinkedList.push(3);
 // myDoublyLinkedList.push(20);
 
-console.log('unishif: ', myDoublyLinkedList.unshift(1))
+console.log('unishif: ', myDoublyLinkedList.unshift(1));
