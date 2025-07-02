@@ -88,8 +88,10 @@ class DoublyLinkedList {
             this.head = null;
             this.tail = null;
         } else {
-            const tmpHead = this.head.next;
-            this.head = tmpHead;
+            const tmpHead = this.head;
+            this.head = this.head.next;
+            this.head.setPrev = null;
+            tmpHead.next = null;
         }
 
         this.length--;
