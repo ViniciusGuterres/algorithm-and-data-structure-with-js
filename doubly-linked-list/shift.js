@@ -83,28 +83,28 @@ class DoublyLinkedList {
 
     shift() {
         if (this.head == null) return null;
+        const tmpHead = this.head;
 
         if (this.head.next == null) {
             this.head = null;
             this.tail = null;
         } else {
-            const tmpHead = this.head;
             this.head = this.head.next;
-            this.head.setPrev = null;
+            this.head.setPrev(null);
             tmpHead.next = null;
         }
 
         this.length--;
-        return this;
+        return tmpHead;
     }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(2);
-// myDoublyLinkedList.push(3);
-// myDoublyLinkedList.push(3);
+myDoublyLinkedList.push(3);
+myDoublyLinkedList.push(4);
 // myDoublyLinkedList.push(20);
 
 console.log('unishif: ', myDoublyLinkedList.shift());
 console.log('unishif: ', myDoublyLinkedList.shift());
-console.log('unishif: ', myDoublyLinkedList.shift());
+// console.log('unishif: ', myDoublyLinkedList.shift());
 
