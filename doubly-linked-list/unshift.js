@@ -71,28 +71,20 @@ class DoublyLinkedList {
             this.head = newNode;
             this.tail = newNode;
         } else {
-            const prevHead = this.head;
-
-            newNode.setNext(prevHead);
-            prevHead.setPrev(newNode);
+            newNode.setNext(this.head);
+            this.head.setPrev(newNode);
 
             this.head = newNode;
         }
 
         this.length++;
-        return newNode;
+        return this;
     }
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
-// myDoublyLinkedList.push(2);
+let myDoublyLinkedList = new DoublyLinkedList(2);
+myDoublyLinkedList.push(3);
 // myDoublyLinkedList.push(3);
-myDoublyLinkedList.push(20);
+// myDoublyLinkedList.push(20);
 
-console.log('pop: ', myDoublyLinkedList.pop());
-
-console.log('unishif: ', myDoublyLinkedList.unshift(12))
-// console.log('pop: ', myDoublyLinkedList.pop())
-
-
-console.log("🚀 ~ myDoublyLinkedList:", myDoublyLinkedList)
+console.log('unishif: ', myDoublyLinkedList.unshift(1))
