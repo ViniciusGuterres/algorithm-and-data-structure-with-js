@@ -99,23 +99,24 @@ class DoublyLinkedList {
     }
 
     get(index) {
-        let node = null;
+        if (index < 0 || index >= this.length) return null;
 
-        if (index < 0 || index > this.length) return node;
+        let tmp = this.head;
 
-        if (index == (this.length - 1)) {
-            node = this.tail;
-        } else {
-            let tmp = this.head;
+        if (index < this.length / 2) {
 
             for (let i = 0; i < index; i++) {
                 tmp = tmp.next;
             }
+        } else {
+            tmp = this.tail;
 
-            node = tmp;
+            for (let i = this.length - 1; i > index; i--) {
+                tmp = tmp.prev;
+            }
         }
 
-        return node;
+        return tmp;
     }
 }
 
@@ -124,7 +125,7 @@ myDoublyLinkedList.push(3);
 myDoublyLinkedList.push(4);
 myDoublyLinkedList.push(20);
 
-console.log('get: ', myDoublyLinkedList.get(2));
+console.log('get: ', myDoublyLinkedList.get(1));
 
 // console.log('unishif: ', myDoublyLinkedList.shift());
 
