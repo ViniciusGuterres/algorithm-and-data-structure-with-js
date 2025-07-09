@@ -170,31 +170,24 @@ class DoublyLinkedList {
     insert(index, value) {
         if (index < 0 || index > this.length) return null;
 
+        if (index == 0) {
+            return this.unshift(value);
+        }
+
+        if (index == this.length) {
+            return this.push(value);
+        }
+
         const newNode = new Node(value);
 
         let tmp = this.get(index);
 
-        if (index == 0) {
-            tmp = this.head;
-
-            tmp.setPrev(newNode);
-            newNode.setNext(tmp);
-            this.head = newNode;
-        } else if ((index + 1) == this.length) {
-            tmp = this.tail;
-
-            tmp.setNext(newNode);
-            newNode.setPrev(tmp);
-            this.tail = newNode;
-        }
-        else if (tmp) {
+        if (tmp) {
             newNode.setNext(tmp.next);
             newNode.setPrev(tmp);
 
             tmp.next.setPrev(newNode);
             tmp.setNext(newNode);
-        } else {
-            return null;
         }
 
         this.length++;
